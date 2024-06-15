@@ -1,21 +1,21 @@
-import React from "react";
-import { motion, type MotionValue, useTransform } from "framer-motion";
+import { useRef } from "react";
+import { useScroll } from "framer-motion";
+import HeroSectionTop from "./hero-section-top";
+import HeroSectionBottom from "./hero-section-bottom";
 
-interface Props {
-  scrollYProgress: MotionValue<number>;
-}
+const HeroSection = () => {
+  const containerRef = useRef<HTMLDivElement>(null);
 
-const HeroSection = ({ scrollYProgress }: Props) => {
-  const scale = useTransform(scrollYProgress, [0, 1], [1, 0.8]);
-  const rotate = useTransform(scrollYProgress, [0, 1], [0, -5])
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start start", "end end"],
+  });
+
   return (
-    <motion.section
-      style={{ scale, rotate }}
-      className="sticky top-0 flex justify-center items-center h-screen w-screen max-w-full bg-yellow-400 overflow-x-hidden"
-    >
-      HeroSection
-      
-    </motion.section>
+    <div ref={containerRef} className="relative h-[200vh] max-w-full">
+      <HeroSectionTop scrollYProgress={scrollYProgress} />
+      <HeroSectionBottom scrollYProgress={scrollYProgress} />
+    </div>
   );
 };
 
