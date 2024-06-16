@@ -1,4 +1,4 @@
-import React from "react";
+
 
 const Navbar = () => {
   return (
@@ -6,7 +6,7 @@ const Navbar = () => {
       <div className="flex justify-between items-center w-full max-w-[90rem] 2xl:max-w-[150rem]">
         <p className="text-lg mix-blend-difference">Meron.</p>
 
-        <div className="flex mix-blend-difference">
+        <div className="flex">
           <button className="px-4 py-2 border border-black rounded-full mr-4">
             Join the community
           </button>
