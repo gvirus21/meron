@@ -9,7 +9,7 @@ import {
 } from "framer-motion";
 import { cn } from "@/lib/utils";
 
-const ThirdSection = () => {
+const OurWorkSection = () => {
   const [dimension, setDimension] = useState({ width: 0, height: 0 });
   const { height } = dimension;
 
@@ -70,7 +70,7 @@ const ThirdSection = () => {
       </h2>
       <div
         ref={container}
-        className="flex gap-[2vw] py-[2vw] box-border h-[70%] w-[90%] min-w-[250px] overflow-hidden"
+        className="flex gap-[2vw] py-[2vw] box-border h-[70%] w-[80%] min-w-[250px] overflow-hidden"
       >
         <Column y={y1} images={[images[0], images[1], images[2]]} />
         <Column
@@ -98,7 +98,7 @@ const ThirdSection = () => {
   );
 };
 
-export default ThirdSection;
+export default OurWorkSection;
 
 interface ColumnProps {
   y: MotionValue;

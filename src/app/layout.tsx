@@ -44,7 +44,6 @@ export default function RootLayout({
       <body className={`font-sans ${tuskerGrotesk.variable}`}>
         <Providers>
           <Navbar />
-          <MainOVerlay />
           {children}
         </Providers>
       </body>
