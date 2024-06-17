@@ -115,7 +115,7 @@ const Column = ({ images, y, className }: ColumnProps) => {
       {images.map((src, index) => (
         <div
           key={index}
-          className={`min-h-[36rem] w-full relative overflow-hidden rounded-xl`}
+          className={`min-h-[36rem] w-full relative overflow-hidden`}
         >
           <Image src={src} fill alt="project" className="object-cover" />
         </div>

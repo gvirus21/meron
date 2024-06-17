@@ -33,13 +33,13 @@ const HeroSectionBottom = ({ scrollYProgress }: Props) => {
     >
       <div className="flex flex-col justify-between h-screen w-screen py-20">
         <Slider
-          text="FRONTEND WEB DEVELOPMENT"
+          text="PROFESSIONAL PHOTOSHOOT"
           left="-80%"
           direction="right"
           progress={sliderScreenYProgress}
         />
         <Slider
-          text="ASTHETIC WEB DESIGN"
+          text="ASTHETIC VIDEOSHOOT"
           left="-50%"
           direction="right"
           progress={sliderScreenYProgress}
