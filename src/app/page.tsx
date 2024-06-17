@@ -10,18 +10,15 @@ export default function Home() {
       <HeroSection />
       <ThirdSection />
       <OfficeSection />
-      <div className="h-[20vh] w-screen max-w-full bg-violet-500" />
+      <footer className="flex justify-end items-center h-[20vh] w-full bg-black px-20">
+        <p className="text-white text-xl mt-20">Made by @gouravkumar</p>
+      </footer>
     </main>
   );
 }
 
 
 // TODO:
-// add office location section.
-// add footer
-// add images to the grid section
-
-// ---
 
 // add custom cursor & interactions.
 // add rest of the scroll animation.

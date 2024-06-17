@@ -49,12 +49,18 @@ const ThirdSection = () => {
     "/images/grid-images/1.jpg",
     "/images/grid-images/2.jpg",
     "/images/grid-images/3.jpg",
-    "/images/grid-images/1.jpg",
-    "/images/grid-images/2.jpg",
-    "/images/grid-images/3.jpg",
-    "/images/grid-images/1.jpg",
-    "/images/grid-images/2.jpg",
-    "/images/grid-images/3.jpg",
+    "/images/grid-images/4.jpg",
+    "/images/grid-images/5.jpg",
+    "/images/grid-images/6.jpg",
+    "/images/grid-images/7.jpg",
+    "/images/grid-images/8.jpg",
+    "/images/grid-images/9.jpg",
+    "/images/grid-images/10.jpg",
+    "/images/grid-images/11.jpg",
+    "/images/grid-images/12.jpg",
+    "/images/grid-images/13.jpg",
+    "/images/grid-images/14.jpg",
+    "/images/grid-images/15.jpg",
   ];
 
   return (
@@ -70,22 +76,22 @@ const ThirdSection = () => {
         <Column
           y={y2}
           className="-mt-[60rem]"
-          images={[images[0], images[1], images[2]]}
+          images={[images[3], images[4], images[5]]}
         />
         <Column
           y={y3}
           className="-mt-[20rem]"
-          images={[images[0], images[1], images[2]]}
+          images={[images[6], images[7], images[8]]}
         />
         <Column
           y={y4}
           className="-mt-[50rem]"
-          images={[images[0], images[1], images[2]]}
+          images={[images[9], images[10], images[11]]}
         />
         <Column
           y={y5}
           className="-mt-[14rem]"
-          images={[images[0], images[1], images[2]]}
+          images={[images[12], images[13], images[14]]}
         />
       </div>
     </div>
