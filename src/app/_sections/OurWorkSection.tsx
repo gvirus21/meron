@@ -46,21 +46,21 @@ const OurWorkSection = () => {
   const y5 = useTransform(scrollYProgress, [0, 1], [0, -height / 2]);
 
   const images = [
-    "/images/grid-images/1.jpg",
-    "/images/grid-images/2.jpg",
-    "/images/grid-images/3.jpg",
-    "/images/grid-images/4.jpg",
-    "/images/grid-images/5.jpg",
-    "/images/grid-images/6.jpg",
-    "/images/grid-images/7.jpg",
-    "/images/grid-images/8.jpg",
-    "/images/grid-images/9.jpg",
-    "/images/grid-images/10.jpg",
-    "/images/grid-images/11.jpg",
-    "/images/grid-images/12.jpg",
-    "/images/grid-images/13.jpg",
-    "/images/grid-images/14.jpg",
-    "/images/grid-images/15.jpg",
+    "/images/grid-images/1.webp",
+    "/images/grid-images/2.webp",
+    "/images/grid-images/3.webp",
+    "/images/grid-images/4.webp",
+    "/images/grid-images/5.webp",
+    "/images/grid-images/6.webp",
+    "/images/grid-images/7.webp",
+    "/images/grid-images/8.webp",
+    "/images/grid-images/9.webp",
+    "/images/grid-images/10.webp",
+    "/images/grid-images/11.webp",
+    "/images/grid-images/12.webp",
+    "/images/grid-images/13.webp",
+    "/images/grid-images/14.webp",
+    "/images/grid-images/15.webp",
   ];
 
   return (
@@ -117,7 +117,13 @@ const Column = ({ images, y, className }: ColumnProps) => {
           key={index}
           className={`min-h-[36rem] w-full relative overflow-hidden`}
         >
-          <Image src={src} fill alt="project" className="object-cover" />
+          <Image
+            src={src}
+            fill
+            sizes="1200px"
+            alt="project"
+            className="object-cover h-auto w-auto"
+          />
         </div>
       ))}
     </motion.div>
