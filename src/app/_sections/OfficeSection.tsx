@@ -1,7 +1,7 @@
+import { useState } from "react";
 import TextReveal from "@/components/helpers/TextReveal";
 import OfficeModal from "@/components/OfficeModal";
-
-import { useState } from "react";
+import { motion, MotionValue, useTransform } from "framer-motion";
 
 const officeData = [
   {
@@ -36,11 +36,26 @@ const officeData = [
   },
 ];
 
-const OfficeSection = () => {
+interface Props {
+  scrollYProgress: MotionValue<number>;
+}
+
+const OfficeSection = ({ scrollYProgress }: Props) => {
   const [modal, setModal] = useState({ active: false, index: 0 });
 
+  const scale = useTransform(scrollYProgress, [0.55, 0.8], [0.8, 1]);
+  const rotate = useTransform(scrollYProgress, [0.55, 0.8], [-5, 0]);
+  const top = useTransform(scrollYProgress, [0.55, 0.8, 0.85], [-20, -40, 0]);
+
   return (
-    <section className="flex flex-col justify-center items-center h-screen w-screen max-w-full bg-slate-200">
+    <motion.section
+      style={{
+        scale,
+        rotate,
+        top,
+      }}
+      className="relative flex flex-col justify-center items-center h-screen w-screen max-w-full bg-slate-200"
+    >
       <h2 className="text-left w-[90%] text-black text-9xl font-tusker-grotesk tracking-wider my-10">
         <TextReveal type="letter">OUR OFFICES</TextReveal>
       </h2>
@@ -58,7 +73,7 @@ const OfficeSection = () => {
           <OfficeModal modal={modal} officeData={officeData} />
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 

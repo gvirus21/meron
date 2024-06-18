@@ -15,8 +15,8 @@ interface Props {
 
 const HeroSectionBottom = ({ scrollYProgress }: Props) => {
   const container = useRef<HTMLDivElement>(null);
-  const scale = useTransform(scrollYProgress, [0, 1], [0.8, 1]);
-  const rotate = useTransform(scrollYProgress, [0, 1], [-5, 0]);
+  const scale = useTransform(scrollYProgress, [0, 0.25], [0.8, 1]);
+  const rotate = useTransform(scrollYProgress, [0, 0.25], [-5, 0]);
 
   const { scrollYProgress: sliderScreenYProgress } = useScroll({
     target: container,
@@ -45,9 +45,9 @@ const HeroSectionBottom = ({ scrollYProgress }: Props) => {
           progress={sliderScreenYProgress}
         />
       </div>
-      <div className="fixed top-1/2 -translate-y-1/2 h-[30rem] aspect-[3/4] overflow-hidden">
+      <div className="absolute top-1/2 -translate-y-1/2 h-[30rem] aspect-[3/4] overflow-hidden bg-pink-300">
         <Image
-          className="h-[120%] w-[120%]"
+          className="h-[120%] w-[120%] object-cover"
           src={"/images/sideface-model.jpg"}
           width={500}
           height={100}

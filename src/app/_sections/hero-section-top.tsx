@@ -11,8 +11,9 @@ interface Props {
 
 const HeroSectionTop = ({ scrollYProgress }: Props) => {
   const headingRef = useRef<HTMLHeadingElement>(null);
-  const scale = useTransform(scrollYProgress, [0, 1], [1, 0.8]);
-  const rotate = useTransform(scrollYProgress, [0, 1], [0, -5]);
+  const scale = useTransform(scrollYProgress, [0, 0.47], [1, 0.8]);
+  const rotate = useTransform(scrollYProgress, [0, 0.47], [0, -5]);
+  const opacity = useTransform(scrollYProgress, [0.30, 0.35], [1, 0]);
 
   useGSAP(
     () => {
@@ -31,7 +32,7 @@ const HeroSectionTop = ({ scrollYProgress }: Props) => {
 
   return (
     <motion.section
-      style={{ scale, rotate }}
+      style={{ scale, rotate, opacity }}
       className="sticky top-0 flex flex-col justify-center items-center h-screen w-screen max-w-full bg-[#8cff34] overflow-x-hidden text-black"
     >
       <h1
@@ -44,7 +45,9 @@ const HeroSectionTop = ({ scrollYProgress }: Props) => {
       <div className="absolute bottom-20 flex flex-col justify-between items-center mt-20 text-xl">
         <p className="w-[43rem] text-center">
           <TextReveal containerDelay={2} animationDelay={0.07}>
-          We at MERON are a Photographer-friendly Agency, specializing in capturing stunning visuals and creating breathtaking photographic masterpieces.
+            We at MERON are a Photographer-friendly Agency, specializing in
+            capturing stunning visuals and creating breathtaking photographic
+            masterpieces.
           </TextReveal>
         </p>
       </div>

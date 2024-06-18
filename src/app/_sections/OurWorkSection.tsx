@@ -9,9 +9,17 @@ import {
 } from "framer-motion";
 import { cn } from "@/lib/utils";
 
-const OurWorkSection = () => {
+interface Props {
+  scrollYProgress: MotionValue<number>;
+}
+
+const OurWorkSection = ({ scrollYProgress }: Props) => {
   const [dimension, setDimension] = useState({ width: 0, height: 0 });
   const { height } = dimension;
+
+  const scale = useTransform(scrollYProgress, [0.25, 0.47], [0.8, 1]);
+  const rotate = useTransform(scrollYProgress, [0.25, 0.47], [5, 0]);
+  const top = useTransform(scrollYProgress, [0.25, 0.47, 0.5], [-20, -40, 0]);
 
   useEffect(() => {
     const raf = () => {
@@ -32,18 +40,18 @@ const OurWorkSection = () => {
     };
   }, []);
 
-  const container = useRef<HTMLDivElement>(null);
+  const sectionContainer = useRef<HTMLDivElement>(null);
 
-  const { scrollYProgress } = useScroll({
-    target: container,
+  const { scrollYProgress: sectionContainerScrollY } = useScroll({
+    target: sectionContainer,
     offset: ["start end", "end start"],
   });
 
-  const y1 = useTransform(scrollYProgress, [0, 1], [0, -height / 2]);
-  const y2 = useTransform(scrollYProgress, [0, 1], [0, height / 2]);
-  const y3 = useTransform(scrollYProgress, [0, 1], [0, -height / 2]);
-  const y4 = useTransform(scrollYProgress, [0, 1], [0, height / 2]);
-  const y5 = useTransform(scrollYProgress, [0, 1], [0, -height / 2]);
+  const y1 = useTransform(sectionContainerScrollY, [0, 1], [0, -height / 2]);
+  const y2 = useTransform(sectionContainerScrollY, [0, 1], [0, height / 2]);
+  const y3 = useTransform(sectionContainerScrollY, [0, 1], [0, -height / 2]);
+  const y4 = useTransform(sectionContainerScrollY, [0, 1], [0, height / 2]);
+  const y5 = useTransform(sectionContainerScrollY, [0, 1], [0, -height / 2]);
 
   const images = [
     "/images/grid-images/1.webp",
@@ -64,12 +72,15 @@ const OurWorkSection = () => {
   ];
 
   return (
-    <div className="flex flex-col justify-center items-center h-screen w-screen max-w-full bg-[#8cff34]">
+    <motion.div
+      style={{ scale, rotate, top }}
+      className="relative flex flex-col justify-center items-center h-screen w-screen max-w-full bg-[#8cff34]"
+    >
       <h2 className="text-left w-[90%] text-black text-9xl font-tusker-grotesk tracking-wider my-10">
         <TextReveal type="letter">OUR WORK</TextReveal>
       </h2>
       <div
-        ref={container}
+        ref={sectionContainer}
         className="flex gap-[2vw] py-[2vw] box-border h-[70%] w-[80%] min-w-[250px] overflow-hidden"
       >
         <Column y={y1} images={[images[0], images[1], images[2]]} />
@@ -94,7 +105,7 @@ const OurWorkSection = () => {
           images={[images[12], images[13], images[14]]}
         />
       </div>
-    </div>
+    </motion.div>
   );
 };
 
