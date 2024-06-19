@@ -1,4 +1,7 @@
+"use client";
+
 import useCursorState from "@/store/useCursorState";
+import { motion, MotionValue, useTransform } from "framer-motion";
 import React from "react";
 import {
   FaYoutube,
@@ -36,8 +39,16 @@ const SOCIAL_LINKS = [
   },
 ];
 
-const MainOVerlay = () => {
+interface Props {
+  scrollYProgress: MotionValue<number>;
+}
+
+const MainOVerlay = ({ scrollYProgress }: Props) => {
   const { setCursorState } = useCursorState();
+
+  const mailIdY = useTransform(scrollYProgress, [0.8, 1.6], [0, 1000]);
+  const phoneNoY = useTransform(scrollYProgress, [0.85, 1.65], [0, 1000]);
+  const iconY = useTransform(scrollYProgress, [0.9, 1.6], [0, -200]);
 
   return (
     <>
@@ -48,14 +59,31 @@ const MainOVerlay = () => {
         onMouseLeave={() => {
           setCursorState("regular");
         }}
-        className="fixed top-1/2 -translate-y-[20%] left-5 text-black text-xl z-50 -rotate-90"
+        className="fixed top-1/2 -translate-y-[20%] left-2 text-black text-xl z-50 -rotate-90"
       >
-        <p>Meron.help@mail.co</p>
-        <p>+91-8903-8080</p>
+        <div className="relative overflow-hidden">
+          <motion.p
+            style={{
+              x: mailIdY,
+            }}
+          >
+            Meron.help@mail.co
+          </motion.p>
+        </div>
+        <div className="relative overflow-hidden">
+          <motion.p
+            style={{
+              x: phoneNoY,
+            }}
+          >
+            +91-8903-8080
+          </motion.p>
+        </div>
       </div>
       <div className="fixed top-1/2 -translate-y-[50%] right-20 flex flex-col justify-between h-[20rem] text-black text-xl z-50">
         {SOCIAL_LINKS.map((social) => (
           <div
+            className="overflow-hidden"
             key={social.id}
             onMouseEnter={() => {
               setCursorState("sm-hovered");
@@ -64,7 +92,13 @@ const MainOVerlay = () => {
               setCursorState("regular");
             }}
           >
-            {social.icon}
+            <motion.div
+              style={{
+                y: iconY,
+              }}
+            >
+              {social.icon}
+            </motion.div>
           </div>
         ))}
       </div>
