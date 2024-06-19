@@ -5,6 +5,7 @@ import localFont from "next/font/local";
 import Navbar from "@/components/Navbar";
 import MainOVerlay from "@/components/MainOVerlay";
 import Providers from "../providers";
+import Cursor from "@/components/Cursor";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -41,8 +42,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`font-sans ${tuskerGrotesk.variable}`}>
+      <body className={`relative font-sans ${tuskerGrotesk.variable}`}>
         <Providers>
+          <Cursor />
           <Navbar />
           {children}
         </Providers>

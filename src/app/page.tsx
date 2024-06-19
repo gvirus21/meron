@@ -33,5 +33,12 @@ export default function Home() {
 }
 
 // TODO:
-// add custom cursor & interactions.
+// small fixes
 // add rest of the scroll animation.
+// make site responsive
+
+// Small tasks
+// adjust height of section headings
+// add cursor interactions
+// update footer
+// make overlay items disappear on office screen
