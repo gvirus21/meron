@@ -59,8 +59,8 @@ const OfficeSection = ({ scrollYProgress }: Props) => {
       <h2 className="text-left w-[90%] text-black text-9xl font-tusker-grotesk tracking-wider my-10">
         <TextReveal type="letter">OUR OFFICES</TextReveal>
       </h2>
-      <div className="flex gap-[2vw] py-[2vw] box-border h-[60%] w-[110%] min-w-[250px] mt-5">
-        <div className="relative flex flex-col  w-[80%] min-w-[60rem] mx-auto">
+      <div className="flex gap-[2vw] py-[2vw] box-border h-[60%] w-full min-w-[250px] mt-5">
+        <div className="relative flex flex-col  w-[90%] min-w-[60rem] mx-auto">
           {officeData.map((office, i) => (
             <OfficeRow
               key={i}
