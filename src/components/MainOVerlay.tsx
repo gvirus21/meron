@@ -1,7 +1,7 @@
 "use client";
 
 import useCursorState from "@/store/useCursorState";
-import { motion, MotionValue, useTransform } from "framer-motion";
+import { delay, motion, MotionValue, useTransform } from "framer-motion";
 import React from "react";
 import {
   FaYoutube,
@@ -43,6 +43,48 @@ interface Props {
   scrollYProgress: MotionValue<number>;
 }
 
+const iconVariant = {
+  initial: {
+    y: 20,
+  },
+  animate: {
+    y: 0,
+    transition: {
+      ease: "easeInOut",
+      delay: 2,
+      duration: 0.5,
+    },
+  },
+};
+
+const phoneNoVariant = {
+  initial: {
+    x: -200,
+  },
+  animate: {
+    x: 0,
+    transition: {
+      ease: "easeInOut",
+      delay: 2.4,
+      duration: 1.5,
+    },
+  },
+};
+
+const mailIdVariant = {
+  initial: {
+    x: -200,
+  },
+  animate: {
+    x: 0,
+    transition: {
+      ease: "easeInOut",
+      delay: 2,
+      duration: 1.5,
+    },
+  },
+};
+
 const MainOVerlay = ({ scrollYProgress }: Props) => {
   const { setCursorState } = useCursorState();
 
@@ -52,7 +94,9 @@ const MainOVerlay = ({ scrollYProgress }: Props) => {
 
   return (
     <>
-      <div
+      <motion.div
+        initial="initial"
+        animate="animate"
         onMouseEnter={() => {
           setCursorState("md-hovered");
         }}
@@ -63,6 +107,7 @@ const MainOVerlay = ({ scrollYProgress }: Props) => {
       >
         <div className="relative overflow-hidden">
           <motion.p
+            variants={mailIdVariant}
             style={{
               x: mailIdY,
             }}
@@ -72,6 +117,7 @@ const MainOVerlay = ({ scrollYProgress }: Props) => {
         </div>
         <div className="relative overflow-hidden">
           <motion.p
+            variants={phoneNoVariant}
             style={{
               x: phoneNoY,
             }}
@@ -79,7 +125,7 @@ const MainOVerlay = ({ scrollYProgress }: Props) => {
             +91-8903-8080
           </motion.p>
         </div>
-      </div>
+      </motion.div>
       <div className="fixed top-1/2 -translate-y-[50%] right-20 flex flex-col justify-between h-[20rem] text-black text-xl z-50">
         {SOCIAL_LINKS.map((social) => (
           <div
@@ -93,6 +139,9 @@ const MainOVerlay = ({ scrollYProgress }: Props) => {
             }}
           >
             <motion.div
+              initial="initial"
+              animate="animate"
+              variants={iconVariant}
               style={{
                 y: iconY,
               }}

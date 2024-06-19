@@ -46,6 +46,20 @@ const TextReveal = ({
       },
     }),
   };
+  const lettersVariant = {
+    initial: {
+      y: 150,
+    },
+    animate: (i: number) => ({
+      y: 10,
+      transition: {
+        duration: 0.8,
+        delay:
+          (containerDelay ?? 0) +
+          (animationDelay ? animationDelay * i : 0.2 * i),
+      },
+    }),
+  };
 
   const words = children.split(" ");
   const letters = children.split("");
@@ -83,7 +97,7 @@ const TextReveal = ({
                 <motion.span
                   className="inline-block"
                   custom={i}
-                  variants={wordVariants}
+                  variants={lettersVariant}
                   initial="initial"
                   animate={isInView ? "animate" : "initial"}
                 >

@@ -10,7 +10,7 @@ interface Props {
   scrollYProgress: MotionValue<number>;
 }
 
-const HeroSectionTop = ({ scrollYProgress }: Props) => {
+const HeroSection = ({ scrollYProgress }: Props) => {
   const headingRef = useRef<HTMLHeadingElement>(null);
   const { setCursorState } = useCursorState();
 
@@ -64,4 +64,4 @@ const HeroSectionTop = ({ scrollYProgress }: Props) => {
   );
 };
 
-export default HeroSectionTop;
+export default HeroSection;

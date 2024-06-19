@@ -6,6 +6,7 @@ import {
   type MotionValue,
 } from "framer-motion";
 import Image from "next/image";
+import useCursorState from "@/store/useCursorState";
 import { cn } from "@/lib/utils";
 import "./styles.css";
 
@@ -13,7 +14,8 @@ interface Props {
   scrollYProgress: MotionValue<number>;
 }
 
-const HeroSectionBottom = ({ scrollYProgress }: Props) => {
+const InfoSection = ({ scrollYProgress }: Props) => {
+  const { setCursorState } = useCursorState();
   const container = useRef<HTMLDivElement>(null);
   const scale = useTransform(scrollYProgress, [0, 0.25], [0.8, 1]);
   const rotate = useTransform(scrollYProgress, [0, 0.25], [-5, 0]);
@@ -43,7 +45,7 @@ const HeroSectionBottom = ({ scrollYProgress }: Props) => {
           progress={containerScrollYProgress}
         />
         <Slider
-          text="ASTHETIC VIDEOSHOOT"
+          text="ASTHETIC VIDEOGRAPHY"
           left="-50%"
           direction="left"
           progress={containerScrollYProgress}
@@ -56,6 +58,12 @@ const HeroSectionBottom = ({ scrollYProgress }: Props) => {
           className="absolute top-[50%] left-[36%] h-[16rem] aspect-[3/4] bg-pink-500 z-10 shadow-xl"
         >
           <Image
+            onMouseEnter={() => {
+              setCursorState("lg-hovered");
+            }}
+            onMouseLeave={() => {
+              setCursorState("regular");
+            }}
             className="h-[120%] w-[120%] object-cover"
             src={"/images/model-1.jpg"}
             width={500}
@@ -66,6 +74,12 @@ const HeroSectionBottom = ({ scrollYProgress }: Props) => {
 
         <motion.div className="absolute top-1/2 -translate-y-1/2 h-[40rem] aspect-[3/4] overflow-hidden bg-pink-300 shadow-xl">
           <Image
+            onMouseEnter={() => {
+              setCursorState("xl-hovered");
+            }}
+            onMouseLeave={() => {
+              setCursorState("regular");
+            }}
             className="h-[120%] w-[120%] object-cover"
             src={"/images/model-2.jpg"}
             width={500}
@@ -79,6 +93,12 @@ const HeroSectionBottom = ({ scrollYProgress }: Props) => {
           className="absolute top-2/4 -translate-y-1/2 right-[32%] h-[24rem] aspect-[3/4] bg-pink-500 shadow-xl"
         >
           <Image
+            onMouseEnter={() => {
+              setCursorState("lg-hovered");
+            }}
+            onMouseLeave={() => {
+              setCursorState("regular");
+            }}
             className="h-[120%] w-[120%] object-cover"
             src={"/images/model-3.webp"}
             width={500}
@@ -91,7 +111,7 @@ const HeroSectionBottom = ({ scrollYProgress }: Props) => {
   );
 };
 
-export default HeroSectionBottom;
+export default InfoSection;
 
 const TextElement = ({
   children,
@@ -100,8 +120,16 @@ const TextElement = ({
   children: string;
   className?: string;
 }) => {
+  const { setCursorState } = useCursorState();
+
   return (
     <p
+      onMouseEnter={() => {
+        setCursorState("lg-hovered");
+      }}
+      onMouseLeave={() => {
+        setCursorState("regular");
+      }}
       className={cn(
         "text-8xl font-tusker-grotesk tracking-wider mr-20",
         className

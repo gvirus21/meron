@@ -4,14 +4,15 @@ export type CursorState =
   | "regular"
   | "sm-hovered"
   | "md-hovered"
-  | "lg-hovered";
+  | "lg-hovered"
+  | "xl-hovered";
 
-interface Tyype {
+interface CursorStateType {
   cursorState: CursorState;
   setCursorState: (val: CursorState) => void;
 }
 
-export const useCursorState = create<Tyype>((set) => ({
+export const useCursorState = create<CursorStateType>((set) => ({
   cursorState: "regular",
   setCursorState: (val) => set(() => ({ cursorState: val })),
 }));

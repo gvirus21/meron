@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import localFont from "next/font/local";
 import Navbar from "@/components/Navbar";
+
 import Providers from "../providers";
 import Cursor from "@/components/Cursor";
 

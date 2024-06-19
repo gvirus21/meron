@@ -7,6 +7,7 @@ import {
   useTransform,
   type MotionValue,
 } from "framer-motion";
+import useCursorState from "@/store/useCursorState";
 import { cn } from "@/lib/utils";
 
 interface Props {
@@ -16,6 +17,8 @@ interface Props {
 const OurWorkSection = ({ scrollYProgress }: Props) => {
   const [dimension, setDimension] = useState({ width: 0, height: 0 });
   const { height } = dimension;
+
+  const { setCursorState } = useCursorState();
 
   const scale = useTransform(scrollYProgress, [0.25, 0.47], [0.8, 1]);
   const rotate = useTransform(scrollYProgress, [0.25, 0.47], [5, 0]);
@@ -76,7 +79,15 @@ const OurWorkSection = ({ scrollYProgress }: Props) => {
       style={{ scale, rotate, top }}
       className="relative flex flex-col justify-center items-center h-screen w-screen max-w-full bg-[#8cff34]"
     >
-      <h2 className="text-left w-[90%] text-black text-9xl font-tusker-grotesk tracking-wider my-10">
+      <h2
+        onMouseEnter={() => {
+          setCursorState("lg-hovered");
+        }}
+        onMouseLeave={() => {
+          setCursorState("regular");
+        }}
+        className="text-left w-[90%] text-black text-9xl font-tusker-grotesk tracking-wider my-10"
+      >
         <TextReveal type="letter">OUR WORK</TextReveal>
       </h2>
       <div
@@ -118,6 +129,8 @@ interface ColumnProps {
 }
 
 const Column = ({ images, y, className }: ColumnProps) => {
+  const { setCursorState } = useCursorState();
+
   return (
     <motion.div
       style={{ y }}
@@ -134,6 +147,12 @@ const Column = ({ images, y, className }: ColumnProps) => {
             sizes="1200px"
             alt="project"
             className="object-cover h-auto w-auto"
+            onMouseEnter={() => {
+              setCursorState("md-hovered");
+            }}
+            onMouseLeave={() => {
+              setCursorState("regular");
+            }}
           />
         </div>
       ))}

@@ -2,6 +2,7 @@ import { useState } from "react";
 import TextReveal from "@/components/helpers/TextReveal";
 import OfficeModal from "@/components/OfficeModal";
 import { motion, MotionValue, useTransform } from "framer-motion";
+import useCursorState from "@/store/useCursorState";
 
 const officeData = [
   {
@@ -42,6 +43,7 @@ interface Props {
 
 const OfficeSection = ({ scrollYProgress }: Props) => {
   const [modal, setModal] = useState({ active: false, index: 0 });
+  const { setCursorState } = useCursorState();
 
   const scale = useTransform(scrollYProgress, [0.55, 0.8], [0.8, 1]);
   const rotate = useTransform(scrollYProgress, [0.55, 0.8], [-5, 0]);
@@ -56,7 +58,15 @@ const OfficeSection = ({ scrollYProgress }: Props) => {
       }}
       className="relative flex flex-col justify-center items-center h-screen w-screen max-w-full bg-slate-200"
     >
-      <h2 className="text-left w-[90%] text-black text-9xl font-tusker-grotesk tracking-wider my-10">
+      <h2
+        onMouseEnter={() => {
+          setCursorState("lg-hovered");
+        }}
+        onMouseLeave={() => {
+          setCursorState("regular");
+        }}
+        className="text-left w-[90%] text-black text-9xl font-tusker-grotesk tracking-wider my-10"
+      >
         <TextReveal type="letter">OUR OFFICES</TextReveal>
       </h2>
       <div className="flex gap-[2vw] py-[2vw] box-border h-[60%] w-full min-w-[250px] mt-5">
@@ -92,6 +102,8 @@ interface OfficeRowProps {
 }
 
 const OfficeRow = ({ name, location, index, setModal }: OfficeRowProps) => {
+  const { setCursorState } = useCursorState();
+
   return (
     <>
       <div className="h-[10px] w-full bg-black" />
@@ -104,10 +116,26 @@ const OfficeRow = ({ name, location, index, setModal }: OfficeRowProps) => {
         }}
         className="flex justify-between items-center text-black h-full group hover:opacity-50 my-1 px-8 transition-all duration-200 ease-linear"
       >
-        <h3 className="text-5xl group-hover:-translate-x-2 transition-all duration-200 ease-linear font-medium">
+        <h3
+          onMouseEnter={() => {
+            setCursorState("md-hovered");
+          }}
+          onMouseLeave={() => {
+            setCursorState("regular");
+          }}
+          className="text-5xl group-hover:-translate-x-2 transition-all duration-200 ease-linear font-medium"
+        >
           {name}
         </h3>
-        <p className="text-xl group-hover:translate-x-2 transition-all duration-200 ease-linear">
+        <p
+          onMouseEnter={() => {
+            setCursorState("sm-hovered");
+          }}
+          onMouseLeave={() => {
+            setCursorState("regular");
+          }}
+          className="text-xl group-hover:translate-x-2 transition-all duration-200 ease-linear"
+        >
           {location}
         </p>
       </div>

@@ -22,6 +22,9 @@ const Cursor = () => {
       case "lg-hovered":
         setCursorSize(120);
         break;
+      case "xl-hovered":
+        setCursorSize(160);
+        break;
       default:
         break;
     }
@@ -41,8 +44,6 @@ const Cursor = () => {
     x: 0,
     y: 0,
   });
-
-  //   const size = 24;
 
   const lerp = (x: number, y: number, amount: number) =>
     x * (1 - amount) + y * amount;
@@ -81,9 +82,8 @@ const Cursor = () => {
       style={{
         height: cursorSize,
         width: cursorSize,
-
       }}
-      className="fixed top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 bg-white mix-blend-difference rounded-full z-[99] transition-all duration-300 ease-out pointer-events-none"
+      className="fixed top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 bg-white mix-blend-difference rounded-full z-[999] transition-all duration-300 ease-out pointer-events-none"
     ></div>
   );
 };
