@@ -24,10 +24,10 @@ export default function Home() {
     >
       <MainOVerlay scrollYProgress={scrollYProgress} />
       <HeroSection scrollYProgress={scrollYProgress} />
-      <InfoSection scrollYProgress={scrollYProgress} />
+      {/* <InfoSection scrollYProgress={scrollYProgress} />
       <OurWorkSection scrollYProgress={scrollYProgress} />
-      <OfficeSection scrollYProgress={scrollYProgress} />
-      <Footer />
+      <OfficeSection scrollYProgress={scrollYProgress} /> */}
+      {/* <Footer /> */}
     </main>
   );
 }

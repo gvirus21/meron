@@ -52,7 +52,7 @@ const HeroSection = ({ scrollYProgress }: Props) => {
       </h1>
 
       <div className="absolute bottom-20 flex flex-col justify-between items-center mt-20 text-xl">
-        <p className="w-[43rem] text-center">
+        <p className="text-sm md:text-base w-full max-w-[40rem] text-center px-3">
           <TextReveal containerDelay={2} animationDelay={0.07}>
             We at MERON are a Photographer-friendly Agency, specializing in
             capturing stunning visuals and creating breathtaking photographic

@@ -105,7 +105,7 @@ const MainOVerlay = ({ scrollYProgress }: Props) => {
         }}
         className="fixed top-1/2 -translate-y-[20%] left-2 text-black text-xl z-50 -rotate-90"
       >
-        <div className="relative overflow-hidden">
+        <div className="hidden md:block relative overflow-hidden">
           <motion.p
             variants={mailIdVariant}
             style={{
@@ -115,7 +115,7 @@ const MainOVerlay = ({ scrollYProgress }: Props) => {
             Meron.help@mail.co
           </motion.p>
         </div>
-        <div className="relative overflow-hidden">
+        <div className="hidden md:block relative overflow-hidden">
           <motion.p
             variants={phoneNoVariant}
             style={{
@@ -126,7 +126,7 @@ const MainOVerlay = ({ scrollYProgress }: Props) => {
           </motion.p>
         </div>
       </motion.div>
-      <div className="fixed top-1/2 -translate-y-[50%] right-20 flex flex-col justify-between h-[20rem] text-black text-xl z-50">
+      <div className="hidden md:flex fixed top-1/2 -translate-y-[50%] right-20 flex-col justify-between h-[20rem] text-black text-xl z-50">
         {SOCIAL_LINKS.map((social) => (
           <div
             className="overflow-hidden"
