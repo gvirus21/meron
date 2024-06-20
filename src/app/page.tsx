@@ -33,6 +33,5 @@ export default function Home() {
 }
 
 // TODO:
-// add rest of the scroll animation.
-// bug fixes
 // make site responsive
+// bug fixes
