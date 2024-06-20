@@ -71,7 +71,7 @@ const OfficeModal = ({ officeData, modal }: Props) => {
       variants={scaleAnimation}
       initial="initial"
       animate={active ? "open" : "closed"}
-      className="absolute bg-white h-[20rem] aspect-[4/3] flex justify-center items-center overflow-hidden pointer-events-none"
+      className="hidden md:flex absolute bg-white h-[20rem] aspect-[4/3] justify-center items-center overflow-hidden pointer-events-none"
     >
       <div
         style={{

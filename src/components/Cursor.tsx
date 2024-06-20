@@ -79,7 +79,7 @@ const Cursor = () => {
         height: cursorSize,
         width: cursorSize,
       }}
-      className="fixed top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 bg-white mix-blend-difference rounded-full z-[999] transition-all duration-300 ease-out pointer-events-none"
+      className="hidden md:block fixed top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 bg-white mix-blend-difference rounded-full z-[999] transition-all duration-300 ease-out pointer-events-none"
     ></div>
   );
 };
