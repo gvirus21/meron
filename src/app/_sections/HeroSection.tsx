@@ -8,9 +8,10 @@ import useCursorState from "@/store/useCursorState";
 
 interface Props {
   scrollYProgress: MotionValue<number>;
+  timeline: gsap.core.Timeline | null;
 }
 
-const HeroSection = ({ scrollYProgress }: Props) => {
+const HeroSection = ({ scrollYProgress, timeline }: Props) => {
   const headingRef = useRef<HTMLHeadingElement>(null);
   const { setCursorState } = useCursorState();
 

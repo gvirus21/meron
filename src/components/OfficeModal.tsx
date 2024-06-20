@@ -1,10 +1,9 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
 import { useRef } from "react";
-
 import "./styles.css";
+import { useGSAP } from "@gsap/react";
 
 interface Props {
   modal: {
@@ -34,7 +33,8 @@ const scaleAnimation = {
 };
 
 const OfficeModal = ({ officeData, modal }: Props) => {
-  const container = useRef(null);
+  const container = useRef<HTMLDivElement | null>(null);
+
   useGSAP(() => {
     const movContainerX = gsap.quickTo(container.current, "left", {
       duration: 0.8,
@@ -45,11 +45,10 @@ const OfficeModal = ({ officeData, modal }: Props) => {
       ease: "power3",
     });
 
-    window.addEventListener("mousemove", (e) => {
+    const handleMouseMove = (e: MouseEvent) => {
       const { clientX, clientY } = e;
 
-      const mouseMoveContainer = document.getElementById("mouseMoveContainer");
-
+      const mouseMoveContainer = container.current;
       if (mouseMoveContainer instanceof HTMLElement) {
         const containerWidth = mouseMoveContainer.offsetWidth;
         const containerHeight = mouseMoveContainer.offsetHeight;
@@ -59,7 +58,13 @@ const OfficeModal = ({ officeData, modal }: Props) => {
         movContainerX(x);
         movContainerY(y);
       }
-    });
+    };
+
+    window.addEventListener("mousemove", handleMouseMove);
+
+    return () => {
+      window.removeEventListener("mousemove", handleMouseMove);
+    };
   });
 
   const { active, index } = modal;
@@ -71,7 +76,8 @@ const OfficeModal = ({ officeData, modal }: Props) => {
       variants={scaleAnimation}
       initial="initial"
       animate={active ? "open" : "closed"}
-      className="hidden md:flex absolute bg-white h-[20rem] aspect-[4/3] justify-center items-center overflow-hidden pointer-events-none"
+      className="hidden md:flex absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white h-[20rem] aspect-[4/3] justify-center items-center overflow-hidden pointer-events-none"
+      // style={{ top: "50%", left: "50%", transform: "translate(-50%, -50%)" }} // Ensure it starts centered
     >
       <div
         style={{

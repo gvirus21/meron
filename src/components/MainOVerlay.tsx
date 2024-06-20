@@ -39,8 +39,10 @@ const SOCIAL_LINKS = [
   },
 ];
 
+
 interface Props {
   scrollYProgress: MotionValue<number>;
+  timeline: gsap.core.Timeline | null;
 }
 
 const iconVariant = {
@@ -85,7 +87,7 @@ const mailIdVariant = {
   },
 };
 
-const MainOVerlay = ({ scrollYProgress }: Props) => {
+const MainOVerlay = ({ scrollYProgress, timeline }: Props) => {
   const { setCursorState } = useCursorState();
 
   const mailIdY = useTransform(scrollYProgress, [0.7, 1.2], [0, 1000]);
