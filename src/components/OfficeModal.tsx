@@ -51,11 +51,11 @@ const OfficeModal = ({ officeData, modal }: Props) => {
       const mouseMoveContainer = document.getElementById("mouseMoveContainer");
 
       if (mouseMoveContainer instanceof HTMLElement) {
-        const containerWidth = mouseMoveContainer?.offsetWidth;
-        const containerHeight = mouseMoveContainer?.offsetHeight;
+        const containerWidth = mouseMoveContainer.offsetWidth;
+        const containerHeight = mouseMoveContainer.offsetHeight;
 
-        const x = clientX - containerWidth;
-        const y = clientY - containerHeight;
+        const x = clientX - containerWidth / 2;
+        const y = clientY - containerHeight / 2;
         movContainerX(x);
         movContainerY(y);
       }
