@@ -65,12 +65,12 @@ const OfficeSection = ({ scrollYProgress }: Props) => {
         onMouseLeave={() => {
           setCursorState("regular");
         }}
-        className="text-left w-[90%] text-black text-9xl font-tusker-grotesk tracking-wider my-10"
+        className="text-left w-[90%] text-black text-8xl md:text-9xl font-tusker-grotesk tracking-wider my-10"
       >
         <TextReveal type="letter">OUR OFFICES</TextReveal>
       </h2>
       <div className="flex gap-[2vw] py-[2vw] box-border h-[60%] w-full min-w-[250px] mt-5">
-        <div className="relative flex flex-col  w-[90%] min-w-[60rem] mx-auto">
+        <div className="relative flex flex-col w-[90%] mx-auto">
           {officeData.map((office, i) => (
             <OfficeRow
               key={i}
@@ -114,7 +114,7 @@ const OfficeRow = ({ name, location, index, setModal }: OfficeRowProps) => {
         onMouseLeave={() => {
           setModal({ active: false, index });
         }}
-        className="flex justify-between items-center text-black h-full group hover:opacity-50 my-1 px-8 transition-all duration-200 ease-linear"
+        className="flex justify-between items-center text-black h-full hover:opacity-50 my-1 px-8 transition-all duration-200 ease-linear"
       >
         <h3
           onMouseEnter={() => {
@@ -123,7 +123,7 @@ const OfficeRow = ({ name, location, index, setModal }: OfficeRowProps) => {
           onMouseLeave={() => {
             setCursorState("regular");
           }}
-          className="text-5xl group-hover:-translate-x-2 transition-all duration-200 ease-linear font-medium"
+          className="text-2xl sm:text-4xl md:text-5xl group-hover:-translate-x-2 transition-all duration-200 ease-linear font-medium"
         >
           {name}
         </h3>
@@ -134,7 +134,7 @@ const OfficeRow = ({ name, location, index, setModal }: OfficeRowProps) => {
           onMouseLeave={() => {
             setCursorState("regular");
           }}
-          className="text-xl group-hover:translate-x-2 transition-all duration-200 ease-linear"
+          className="text-xs sm:text-base md:text-xl group-hover:translate-x-2 transition-all duration-200 ease-linear text-right"
         >
           {location}
         </p>

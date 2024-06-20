@@ -10,6 +10,7 @@ const config: Config = {
     extend: {
       screens: {
         "3xl": "1800px",
+        "4xl": "2100px",
       },
       fontFamily: {
         "tusker-grotesk": ["var(--tusker-grotesk)"],

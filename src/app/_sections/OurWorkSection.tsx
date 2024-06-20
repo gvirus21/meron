@@ -86,7 +86,7 @@ const OurWorkSection = ({ scrollYProgress }: Props) => {
         onMouseLeave={() => {
           setCursorState("regular");
         }}
-        className="text-left w-[90%] text-black text-9xl font-tusker-grotesk tracking-wider my-10"
+        className="text-left w-[90%] text-black text-8xl lg:text-9xl font-tusker-grotesk tracking-wider my-10"
       >
         <TextReveal type="letter">OUR WORK</TextReveal>
       </h2>
@@ -107,12 +107,12 @@ const OurWorkSection = ({ scrollYProgress }: Props) => {
         />
         <Column
           y={y4}
-          className="-mt-[50rem]"
+          className="hidden md:flex -mt-[50rem]"
           images={[images[9], images[10], images[11]]}
         />
         <Column
           y={y5}
-          className="-mt-[14rem]"
+          className="hidden md:flex -mt-[14rem]"
           images={[images[12], images[13], images[14]]}
         />
       </div>
@@ -134,7 +134,7 @@ const Column = ({ images, y, className }: ColumnProps) => {
   return (
     <motion.div
       style={{ y }}
-      className={cn(`flex flex-col h-full w-1/5 gap-[2vw]`, className)}
+      className={cn(`flex flex-col h-full w-1/3 md:w-1/5 gap-[2vw]`, className)}
     >
       {images.map((src, index) => (
         <div

@@ -30,10 +30,6 @@ const Cursor = () => {
     }
   }, [cursorState]);
 
-  useEffect(() => {
-    console.log("cursor size: ", cursorSize);
-  }, [cursorSize]);
-
   const circle = useRef(null);
   const mouse = useRef({
     x: 0,

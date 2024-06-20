@@ -88,9 +88,9 @@ const mailIdVariant = {
 const MainOVerlay = ({ scrollYProgress }: Props) => {
   const { setCursorState } = useCursorState();
 
-  const mailIdY = useTransform(scrollYProgress, [0.8, 1.6], [0, 1000]);
-  const phoneNoY = useTransform(scrollYProgress, [0.85, 1.65], [0, 1000]);
-  const iconY = useTransform(scrollYProgress, [0.9, 1.6], [0, -200]);
+  const mailIdY = useTransform(scrollYProgress, [0.7, 1.2], [0, 1000]);
+  const phoneNoY = useTransform(scrollYProgress, [0.75, 1.25], [0, 1000]);
+  const iconY = useTransform(scrollYProgress, [0.8, 1.2], [0, -200]);
 
   return (
     <>
