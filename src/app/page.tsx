@@ -33,5 +33,4 @@ export default function Home() {
 }
 
 // TODO:
-// make site responsive
 // bug fixes
