@@ -1,9 +1,8 @@
+import { useRef } from "react";
 import Image from "next/image";
-import { motion } from "framer-motion";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
-import { useRef } from "react";
-
+import { motion } from "framer-motion";
 import "./styles.css";
 
 interface Props {
@@ -47,18 +46,14 @@ const OfficeModal = ({ officeData, modal }: Props) => {
 
     window.addEventListener("mousemove", (e) => {
       const { clientX, clientY } = e;
+      const windowHeight = window.innerHeight;
+      const windowWidth = window.innerWidth;
 
-      const mouseMoveContainer = document.getElementById("mouseMoveContainer");
+      const x = clientX - windowWidth / 15;
+      const y = clientY - windowHeight / 10;
 
-      if (mouseMoveContainer instanceof HTMLElement) {
-        const containerWidth = mouseMoveContainer.offsetWidth;
-        const containerHeight = mouseMoveContainer.offsetHeight;
-
-        const x = clientX - containerWidth / 2;
-        const y = clientY - containerHeight / 2;
-        movContainerX(x);
-        movContainerY(y);
-      }
+      movContainerX(x);
+      movContainerY(y);
     });
   });
 
@@ -71,7 +66,7 @@ const OfficeModal = ({ officeData, modal }: Props) => {
       variants={scaleAnimation}
       initial="initial"
       animate={active ? "open" : "closed"}
-      className="hidden md:flex absolute bg-white h-[20rem] aspect-[4/3] justify-center items-center overflow-hidden pointer-events-none"
+      className="hidden md:flex absolute top-0 left-1/2 -translate-x-1/2 bg-white h-[20rem] aspect-[4/3] justify-center items-center overflow-hidden pointer-events-none"
     >
       <div
         style={{
