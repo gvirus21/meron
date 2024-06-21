@@ -1,8 +1,8 @@
 "use client";
 
-import { useState, useRef, useLayoutEffect } from "react";
+import { useState, useRef } from "react";
 import { useScroll } from "framer-motion";
-import Loader from "@/components/Loader";
+import Loader from "@/components/Loader/index";
 import MainOVerlay from "@/components/MainOVerlay";
 import HeroSection from "./_sections/HeroSection";
 import InfoSection from "./_sections/InfoSection";
@@ -29,6 +29,8 @@ export default function Home() {
     target: container,
     offset: ["start start", "end end"],
   });
+
+
 
   return (
     <main

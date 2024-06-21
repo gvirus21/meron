@@ -48,18 +48,18 @@ const Cursor = () => {
     gsap.set(circle.current, { x, y, xPercent: -24, yPercent: -50 });
   };
 
-  const animate = () => {
-    const { x, y } = delayedMouse.current;
-
-    delayedMouse.current = {
-      x: lerp(x, mouse.current.x, 0.1),
-      y: lerp(y, mouse.current.y, 0.1),
-    };
-    moveCircle(delayedMouse.current.x, delayedMouse.current.y);
-    window.requestAnimationFrame(animate);
-  };
-
   useEffect(() => {
+    const animate = () => {
+      const { x, y } = delayedMouse.current;
+
+      delayedMouse.current = {
+        x: lerp(x, mouse.current.x, 0.1),
+        y: lerp(y, mouse.current.y, 0.1),
+      };
+      moveCircle(delayedMouse.current.x, delayedMouse.current.y);
+      window.requestAnimationFrame(animate);
+    };
+
     animate();
     const mouseMove = (e: MouseEvent) => {
       const { clientX, clientY } = e;
