@@ -12,6 +12,7 @@ import Footer from "./_sections/Footer";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import Navbar from "@/components/Navbar";
+import { cn } from "@/lib/utils";
 
 export default function Home() {
   const [loaderFinished, setLoaderFinished] = useState(false);
@@ -34,22 +35,24 @@ export default function Home() {
   return (
     <main
       ref={container}
-      className="relative flex flex-col items-center justify-between h-[420vh] bg-black"
+      className={cn(
+        "relative flex flex-col items-center justify-between  bg-black",
+        loaderFinished ? "h-[420vh]" : "h-screen"
+      )}
     >
       {loaderFinished ? (
         <>
           <Navbar />
           <MainOVerlay timeline={timeline} scrollYProgress={scrollYProgress} />
           <HeroSection timeline={timeline} scrollYProgress={scrollYProgress} />
+          <InfoSection scrollYProgress={scrollYProgress} />
+          <OurWorkSection scrollYProgress={scrollYProgress} />
+          <OfficeSection scrollYProgress={scrollYProgress} />
+          <Footer />
         </>
       ) : (
         <Loader timeline={timeline} />
       )}
-
-      <InfoSection scrollYProgress={scrollYProgress} />
-      <OurWorkSection scrollYProgress={scrollYProgress} />
-      <OfficeSection scrollYProgress={scrollYProgress} />
-      <Footer />
     </main>
   );
 }
