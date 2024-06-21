@@ -11,6 +11,7 @@ import OfficeSection from "./_sections/OfficeSection";
 import Footer from "./_sections/Footer";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
+import Navbar from "@/components/Navbar";
 
 export default function Home() {
   const [loaderFinished, setLoaderFinished] = useState(false);
@@ -30,8 +31,6 @@ export default function Home() {
     offset: ["start start", "end end"],
   });
 
-
-
   return (
     <main
       ref={container}
@@ -39,6 +38,7 @@ export default function Home() {
     >
       {loaderFinished ? (
         <>
+          <Navbar />
           <MainOVerlay timeline={timeline} scrollYProgress={scrollYProgress} />
           <HeroSection timeline={timeline} scrollYProgress={scrollYProgress} />
         </>
@@ -55,4 +55,4 @@ export default function Home() {
 }
 
 // TODO:
-// bug fixes
+// fix office modal

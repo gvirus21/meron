@@ -1,12 +1,32 @@
 "use client";
 
+import { motion } from "framer-motion";
 import useCursorState from "@/store/useCursorState";
 
 const Navbar = () => {
   const { setCursorState } = useCursorState();
 
+  const navAnimation = {
+    initial: {
+      opacity: 0,
+    },
+    animate: {
+      opacity: 100,
+      transition: {
+        duration: 1,
+        delay: 2,
+        ease: "easeInOut",
+      },
+    },
+  };
+
   return (
-    <nav className="fixed top-0 flex justify-center items-center h-20 w-screen z-[99] text-black">
+    <motion.nav
+      variants={navAnimation}
+      initial="initial"
+      animate="animate"
+      className="fixed top-0 flex justify-center items-center h-20 w-screen z-[99] text-black"
+    >
       <div className="flex justify-between items-center w-full px-4 lg:px-16">
         <p
           onMouseEnter={() => {
@@ -45,7 +65,7 @@ const Navbar = () => {
           </button>
         </div>
       </div>
-    </nav>
+    </motion.nav>
   );
 };
 

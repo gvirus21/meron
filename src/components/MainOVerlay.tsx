@@ -1,7 +1,7 @@
 "use client";
 
 import useCursorState from "@/store/useCursorState";
-import { delay, motion, MotionValue, useTransform } from "framer-motion";
+import { motion, MotionValue, useTransform } from "framer-motion";
 import React from "react";
 import {
   FaYoutube,
@@ -87,7 +87,7 @@ const mailIdVariant = {
   },
 };
 
-const MainOVerlay = ({ scrollYProgress, timeline }: Props) => {
+const MainOVerlay = ({ scrollYProgress }: Props) => {
   const { setCursorState } = useCursorState();
 
   const mailIdY = useTransform(scrollYProgress, [0.7, 1.2], [0, 1000]);

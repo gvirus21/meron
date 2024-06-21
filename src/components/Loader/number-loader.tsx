@@ -74,7 +74,12 @@ const NumberLoader = ({ timeline }: Props) => {
         x: lerp(x, mouse.current.x, 0.1),
         y: lerp(y, mouse.current.y, 0.1),
       };
-      moveLoaderContainer(delayedMouse.current.x, delayedMouse.current.y);
+
+      const windowWidth = window.innerWidth;
+
+      if (windowWidth > 800) {
+        moveLoaderContainer(delayedMouse.current.x, delayedMouse.current.y);
+      }
       window.requestAnimationFrame(animate);
     };
     animate();
@@ -94,7 +99,7 @@ const NumberLoader = ({ timeline }: Props) => {
     <div
       ref={loadingNumberRefContainer}
       className={cn(
-        "absolute flex h-[5rem] w-[9rem] text-black text-[3.5rem] overflow-hidden font-tusker-grotesk for-gsap-loading-number-container",
+        "absolute flex h-[5rem] w-[6rem] text-black text-[3.5rem] overflow-hidden font-tusker-grotesk for-gsap-loading-number-container",
         isVisible ? "opacity-100" : "opacity-0"
       )}
     >

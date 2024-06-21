@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import localFont from "next/font/local";
-import Navbar from "@/components/Navbar";
 
 import Providers from "../providers";
 import Cursor from "@/components/Cursor";
@@ -42,7 +41,6 @@ export default function RootLayout({
       <body className={`relative font-sans ${tuskerGrotesk.variable}`}>
         <Providers>
           <Cursor />
-          <Navbar />
           {children}
         </Providers>
       </body>
