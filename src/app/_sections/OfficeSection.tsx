@@ -106,7 +106,7 @@ const OfficeRow = ({ name, location, index, setModal }: OfficeRowProps) => {
 
   return (
     <>
-      <div className="h-[10px] w-full bg-black" />
+      <div className="h-[10px] w-full bg-black pointer-events-none" />
       <div
         onMouseEnter={() => {
           setModal({ active: true, index });
@@ -140,7 +140,7 @@ const OfficeRow = ({ name, location, index, setModal }: OfficeRowProps) => {
         </p>
       </div>
       {index === officeData.length - 1 && (
-        <div className="h-[10px] w-full bg-black" />
+        <div className="h-[10px] w-full bg-black pointer-events-none" />
       )}
     </>
   );
