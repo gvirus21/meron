@@ -1,9 +1,9 @@
-import Image from "next/image";
-import { motion } from "framer-motion";
-import gsap from "gsap";
 import { useRef } from "react";
-import "./styles.css";
+import Image from "next/image";
+import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
+import { motion } from "framer-motion";
+import "./styles.css";
 
 interface Props {
   modal: {
@@ -47,25 +47,19 @@ const OfficeModal = ({ officeData, modal }: Props) => {
 
     const handleMouseMove = (e: MouseEvent) => {
       const { clientX, clientY } = e;
-
-      const mouseMoveContainer = container.current;
-      if (mouseMoveContainer instanceof HTMLElement) {
-        const containerWidth = mouseMoveContainer.offsetWidth;
-        const containerHeight = mouseMoveContainer.offsetHeight;
-
-        const x = clientX - containerWidth / 2;
-        const y = clientY - containerHeight / 2;
+      const windowHeight = window.innerHeight;
+      const windowWidth = window.innerWidth;
+        const x = clientX - windowWidth / 15;
+        const y = clientY - windowHeight / 10;
         movContainerX(x);
         movContainerY(y);
-      }
     };
 
     window.addEventListener("mousemove", handleMouseMove);
-
-    return () => {
-      window.removeEventListener("mousemove", handleMouseMove);
-    };
-  });
+      return () => {
+        window.removeEventListener("mousemove", handleMouseMove);
+      };
+    });
 
   const { active, index } = modal;
 
@@ -76,8 +70,7 @@ const OfficeModal = ({ officeData, modal }: Props) => {
       variants={scaleAnimation}
       initial="initial"
       animate={active ? "open" : "closed"}
-      className="hidden md:flex absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white h-[20rem] aspect-[4/3] justify-center items-center overflow-hidden pointer-events-none"
-      // style={{ top: "50%", left: "50%", transform: "translate(-50%, -50%)" }} // Ensure it starts centered
+      className="hidden md:flex absolute top-0 left-1/2 -translate-x-1/2 bg-white h-[20rem] aspect-[4/3] justify-center items-center overflow-hidden pointer-events-none"
     >
       <div
         style={{
