@@ -1,3 +1,15 @@
+# MERON - Concept Videography/Photography Agency
+
+![20240626_170022_251](https://github.com/gvirus21/meron/assets/69251030/c21e19bf-4950-4e4b-a194-dbe4891677f9)
+
+
+- Meron is a cutting-edge videography and photography agency combining creativity and technology. Our website showcases our sleek design, beautiful animations, and the modern technologies we use to deliver high-quality visual content. Explore our portfolio to see how we capture the essence of moments and tell compelling stories through our innovative approach.
+
+- Key Tech stack used: Next Js, Tailwindcss, GSAP, Framer motion.
+
+- hosted-link: https://meron-agency.vercel.app/
+
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
